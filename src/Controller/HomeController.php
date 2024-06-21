@@ -33,9 +33,9 @@ class HomeController extends AbstractController
 
         $entityManager->flush();
 
-        return new JsonResponse([
-            'store' => 'Hello World'
-        ]);
+        $this->addFlash('success', 'Schütze wurde übernommen!');
+
+        return $this->redirect('/home');
     }
 
     #[Route('/list', name: 'app_list')]
